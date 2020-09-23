@@ -3,30 +3,43 @@ import java.util.*;
 public class KLists{
 
 	public double [] mergeKLists (double [][] outerArray){
-		//total lenght of array:
+		
+		//for loop to find total lenght of array (k):
 		int k=0;
 		for (int i=0;i<outerArray.length; i++){
-	      for (int j=0; j<outerArray[i].length; j++){
-	        k++;
-	      }
+			k+=outerArray[i].length;
 		}
-		//create final array:
+		//total lenght of array = k
+
+		//create final sorted merged array of size k
 		double [] merged = new double[k];
-		//merge inner arrays into final array: Use MergeSort
-		for (int i=0;i<outerArray.length; i++){
-			
+		//if size of final array, k, is only 1, the final array if the same as the outer array
+		if(merged.length==1){
+			merged[0]=outerArray[0][0];
 		}
-		int i=0, j=0;
-
-
-
-		while(i<)
-
-
-		return ;
+		//if size of final array, k, is bigger then 1, then for loop to sort both dimensions of outerarray to create final sorted merged array
+		else if(merged.length>1){
+			//variables 
+			int counter=0, i=0, idx=0;
+			for (;i<outerArray.length; i++){
+				for (int j=0;j<outerArray[i].length; j++){
+					merged[counter]=outerArray[i][j];
+					counter++;
+				}
+			}
+			for(; idx<merged.length; idx++){
+				double temp = merged[idx];
+				int holder = idx - 1;
+				while(holder>=0 && merged[holder]>temp){
+					merged[holder+1]=merged[holder];
+					--holder;
+				}
+				merged[holder+1]=temp;
+			}
+			return merged;
+		}
+		return merged;
 	}
-
-
 
 	public static void main(String[] args){
 		KLists lists = new KLists();
@@ -49,7 +62,7 @@ public class KLists{
 		System.out.println(" ]");
 
 
-		double finalKlist = lists.mergeKLists(outerArray1);
+		double [] finalKlist = lists.mergeKLists(outerArray1);
 
 		System.out.print("Sorted final array =  [ ");
 		for(int i=0; i<finalKlist.length; i++){
@@ -57,8 +70,6 @@ public class KLists{
 			System.out.print(", ");
 		}
 		System.out.println(" ]");
-
-
 
 	} 
 }
