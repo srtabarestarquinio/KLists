@@ -4,6 +4,4 @@ Author:
 	Suchitoto Rose Tabares-Tarquinio
 
 Goal:
-	Given a UNSORTED array of integers, return the indices of the two numbers whose sum is equal to a given target. Return -1 if nothing a solution cannot be found.
-
-Comments:
+	Given an "outer" array of k “inner” arrays, with each inner array sorted in ascending order. Your task is to merge and return all the inner arrays into one final sorted "output” array.
