@@ -40,6 +40,7 @@ public class KLists{
 		}
 		return merged;
 	}
+	//printOG helper function to print original unsorted array or arrays
 	public void printOG (double [][] outerArray){
 		System.out.print("Outer Array =  [ ");
 		for (int i=0;i<outerArray.length; i++){
@@ -54,6 +55,7 @@ public class KLists{
 		}
 		System.out.println(" ]");
 	}
+	//printFinal helper function to print final sorted array
 	public void printFinal(double [] finalKlist){
 		System.out.print("Sorted final array =  [ ");
 		for(int i=0; i<finalKlist.length; i++){
@@ -65,17 +67,24 @@ public class KLists{
 	}
 
 	public static void main(String[] args){
+		//create lists object from KLists class
 		KLists lists = new KLists();
 
 		Scanner input=new Scanner(System.in);
 
+		//for this particular case, I did not take user input and I created 4 varibles for the 4 cases explained in the lab instructions
+		//variables stored in double 2D arrays of double type
 		double [][] outerArray1 = new double[][] {{1.1, 4.4, 5.5}, {1.1, 3.3, 4.4}, {2.2, 6.6}};
 		double [][] outerArray2 = new double[][] {};
 		double [][] outerArray3 = new double[][] {{}};
 		double [][] outerArray4 = new double[][] {{9.7, 17.1}, {15.8}, {12.7, 18.5, 21.27}};
 
+		//print outerArray so user can visualy see the initial unsorted array
+		//call printOG helper function
 		lists.printOG(outerArray1);
+		//create finalKList variable to store array of type double from return array from mergeKLists function
 		double [] finalKlist1 = lists.mergeKLists(outerArray1);
+		//call printFinal helper funtion
 		lists.printFinal(finalKlist1);
 
 		lists.printOG(outerArray2);
