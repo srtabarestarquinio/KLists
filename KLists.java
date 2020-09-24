@@ -40,19 +40,12 @@ public class KLists{
 		}
 		return merged;
 	}
-
-	public static void main(String[] args){
-		KLists lists = new KLists();
-
-		Scanner input=new Scanner(System.in);
-
-		double [][] outerArray1 = new double[][] {{9.7, 17.1}, {15.8}, {12.7, 18.5, 21.27}};
-
+	public void printOG (double [][] outerArray){
 		System.out.print("Outer Array =  [ ");
-		for (int i=0;i<outerArray1.length; i++){
+		for (int i=0;i<outerArray.length; i++){
 	      System.out.print("[ ");
-	      for (int j=0; j<outerArray1[i].length; j++){
-	        System.out.print(outerArray1[i][j]);
+	      for (int j=0; j<outerArray[i].length; j++){
+	        System.out.print(outerArray[i][j]);
 	        System.out.print(", ");
 
 	      }
@@ -60,16 +53,41 @@ public class KLists{
 	      System.out.print(", ");
 		}
 		System.out.println(" ]");
-
-
-		double [] finalKlist = lists.mergeKLists(outerArray1);
-
+	}
+	public void printFinal(double [] finalKlist){
 		System.out.print("Sorted final array =  [ ");
 		for(int i=0; i<finalKlist.length; i++){
 			System.out.print(finalKlist[i]);
 			System.out.print(", ");
 		}
 		System.out.println(" ]");
+		System.out.println();
+	}
 
+	public static void main(String[] args){
+		KLists lists = new KLists();
+
+		Scanner input=new Scanner(System.in);
+
+		double [][] outerArray1 = new double[][] {{1.1, 4.4, 5.5}, {1.1, 3.3, 4.4}, {2.2, 6.6}};
+		double [][] outerArray2 = new double[][] {};
+		double [][] outerArray3 = new double[][] {{}};
+		double [][] outerArray4 = new double[][] {{9.7, 17.1}, {15.8}, {12.7, 18.5, 21.27}};
+
+		lists.printOG(outerArray1);
+		double [] finalKlist1 = lists.mergeKLists(outerArray1);
+		lists.printFinal(finalKlist1);
+
+		lists.printOG(outerArray2);
+		double [] finalKlist2 = lists.mergeKLists(outerArray2);
+		lists.printFinal(finalKlist2);
+
+		lists.printOG(outerArray3);
+		double [] finalKlist3 = lists.mergeKLists(outerArray3);
+		lists.printFinal(finalKlist3);
+
+		lists.printOG(outerArray4);
+		double [] finalKlist4 = lists.mergeKLists(outerArray4);
+		lists.printFinal(finalKlist4);
 	} 
 }
